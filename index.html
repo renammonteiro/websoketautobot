@@ -43,7 +43,9 @@
                         })
 
                         $('#msg').keyup(function (evt) {
+                            setTimeout(function(){
                             socket.emit('status', '')
+                            },1000);
                         })                        
                     } else {
                         socket.emit('chat msg', $('#msg').val())
