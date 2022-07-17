@@ -32,12 +32,12 @@ serverSocket.on('connect', function(socket){
     })
 
     socket.on('disconnect', function(){
-        console.log('Cliente desconectado: ' + socket.nickname)
-        serverSocket.emit('chat msg', 'Cliente desconectado: ' + socket.nickname)
+        console.log(`Cliente desconectado: ${socket.nickname}`)
+        serverSocket.emit('chat msg', `${socket.nickname} saiu` )
     })
         
     socket.on('chat msg', function(msg){
-        serverSocket.emit('chat msg', `${socket.nickname} diz: ${msg}`)
+        serverSocket.emit('chat msg', JSON.stringify(socket)+`${socket.nickname} diz: ${msg}`)
     })
 
     socket.on('status', function(msg){
