@@ -37,6 +37,7 @@ serverSocket.on('connect', function(socket){
     })
         
     socket.on('chat msg', function(msg){
+        if(msg != '')
         serverSocket.emit('chat msg', `${socket.nickname} diz: ${msg}`)
     })
 
